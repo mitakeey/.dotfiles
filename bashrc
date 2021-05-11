@@ -183,6 +183,7 @@ alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -s"
+alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
 # Enables fzf keybindings for Bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
