@@ -213,6 +213,15 @@ if [ "$is_mosh" == "mosh-server" ]; then                                        
   fi
 fi
 
+# Pass login messages to tmux
+MOTD="/run/motd.dynamic"
+
+if [ ! -z "$TMUX" ]; then       # check if we are inside tmux
+  if [ -f "$MOTD" ]; then       # check if file file is present
+    cat "$MOTD"                 # show motd contents
+  fi
+fi
+
 # make man have color
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
