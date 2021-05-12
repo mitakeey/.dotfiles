@@ -10,5 +10,5 @@
 
 ```sh
 # Run this command to install.
-curl -fsSL https://raw.githubusercontent.com/iAmG-r00t/.dotfiles/main/servers.sh | sh
+curl -fsSL https://raw.githubusercontent.com/iAmG-r00t/.dotfiles/main/servers.sh | bash
 ```
