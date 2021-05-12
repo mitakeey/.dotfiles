@@ -195,8 +195,23 @@ source /usr/share/doc/fzf/examples/completion.bash
 export GOPATH=~/gotools
 export PATH=${PATH}:/usr/local/go/bin:${GOPATH}/bin
 
+# Detect if tmux in a tmux enviroment then export TERM as xterm-256color
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
+# Detect if connected through mosh then spawn a tmux session
+is_mosh="$(pstree -plus $$ | grep -o mosh-server)"
+if [ "$is_mosh" == "mosh-server" ]; then                                            # check if this is a mosh session
+  if command -v tmux >/dev/null 2>&1; then                                          # check if tmux is installed
+     if [[ -z "$TMUX" ]]; then                                                      # do not allow tmux in tmux
+        detached_session="$(t ls | grep -vm1 attached | cut -d: -f1)"               # get detached session name
+        if [[ -z "$detached_session" ]]; then                                       # check if detached session is present
+           tn Default                                                               # if there is no detached session, create a new session called default
+        else
+           ta "$detached_session"                                                   # if detached session is present attach to it
+        fi
+     fi
+  fi
+fi
 
 # make man have color
 export LESS_TERMCAP_mb=$'\e[1;32m'
