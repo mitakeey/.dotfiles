@@ -184,6 +184,9 @@ alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -s"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias update="apt update -qq"
+alias upgrade="apt upgrade -qq -y"
+alias cleanapt="apt autoremove -y && apt remove -y && apt clean"
 
 # Enables fzf keybindings for Bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
