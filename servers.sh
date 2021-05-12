@@ -25,7 +25,7 @@ echo -e "\n"
 
 echo -e "    ${bold}[>]${reset} ${green}Installing tmux.\n${reset}"
 # install tmux from github release files
-sudo apt-get install -qq -y libevent-dev ncurses-dev build-essential bison pkg-config && \
+sudo apt-get remove tmux -y -qq && sudo apt-get install -qq -y libevent-dev ncurses-dev build-essential bison pkg-config && \
 curl -s https://api.github.com/repos/tmux/tmux/releases/latest | grep "browser_download_url.*" \
 | grep "browser_download_url.*" | grep "tmux-.*.tar.gz" | cut -d : -f 2,3 \
 | tr -d '"' | wget -qi - && tar -zxf tmux-*.tar.gz && cd tmux-*/ && ./configure && \
