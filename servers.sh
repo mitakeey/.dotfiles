@@ -41,7 +41,7 @@ echo -e "${bold}[+] ${reset}${brown}Installing some important packages for effec
 
 echo -e "    ${bold}[>]${reset} ${green}Installing mosh and fzf.\n${reset}"
 # install mosh and fzf
-sudo apt install wget mosh fzf
+sudo apt install wget mosh fzf -y
 echo -e "\n"
 
 echo -e "    ${bold}[>]${reset} ${green}Installing tmux.\n${reset}"
