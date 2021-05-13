@@ -183,6 +183,7 @@ alias t="tmux"
 alias ta="t a -t"
 alias tls="t ls"
 alias tn="t new -s"
+alias rm="rm -i"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias update="sudp apt update -qq"
 alias upgrade="sudo apt upgrade -qq -y"
@@ -224,6 +225,14 @@ if [ ! -z "$TMUX" ]; then       # check if we are inside tmux
     cat "$MOTD"                 # show motd contents
   fi
 fi
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config
+# ignoring wildcards
+[[ -e "$HOME/.ssh/config" ]] && complete -o "default" \
+        -o "nospace" \
+        -W "$(grep "^Host" ~/.ssh/config | \
+        grep -v "[?*]" | cut -d " " -f2 | \
+        tr ' ' '\n')" scp sftp ssh mosh
 
 # make man have color
 export LESS_TERMCAP_mb=$'\e[1;32m'
