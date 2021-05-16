@@ -185,7 +185,7 @@ alias tls="t ls"
 alias tn="t new -s"
 alias rm="rm -i"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-alias update="sudp apt update -qq"
+alias update="sudo apt update -qq"
 alias upgrade="sudo apt upgrade -qq -y"
 alias cleanapt="sudo apt autoremove -y && sudo apt remove -y && sudo apt clean"
 
