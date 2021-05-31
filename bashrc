@@ -202,6 +202,9 @@ export PATH=${PATH}:/usr/local/go/bin:${GOPATH}/bin
 # Detect if tmux in a tmux enviroment then export TERM as xterm-256color
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
+mosh_session="$(who | grep -v 'via mosh' | grep -oP '(?<=mosh \[)(\d+)(?=\])')"
+[ -n "$mosh_session" ] && kill -9 "$mosh_session"
+
 # Detect if connected through mosh then spawn a tmux session
 is_mosh="$(pstree -plus $$ | grep -o mosh-server)"
 if [ "$is_mosh" == "mosh-server" ]; then                                            # check if this is a mosh session
