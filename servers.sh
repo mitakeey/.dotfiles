@@ -75,6 +75,9 @@ wget -q --show-progress https://raw.githubusercontent.com/iAmG-r00t/.dotfiles/ma
 mv ~/tmux.conf ~/.tmux.conf
 echo -e "\n"
 
+# vim setup
+curl -fsSL https://raw.githubusercontent.com/iAmG-r00t/.dotfiles/main/vim.sh | bash
+
 # clean up
 echo -e "${bold}[+]${reset} ${brown}Cleaning up server.\n${reset}"
 sudo apt autoremove -y && sudo apt remove -y && sudo apt clean
