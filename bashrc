@@ -188,6 +188,11 @@ alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {
 alias update="sudo apt update -qq"
 alias upgrade="sudo apt upgrade -qq -y"
 alias cleanapt="sudo apt autoremove -y && sudo apt remove -y && sudo apt clean"
+alias push="git push"
+alias commit="git commit -m "$1""
+alias add="git add"
+alias reload="source ~/.bashrc"
+alias status="git status"
 
 # Enables fzf keybindings for Bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
