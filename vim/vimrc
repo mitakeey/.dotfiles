@@ -1,0 +1,29 @@
+" VIM Config File
+
+" Indentation
+set autoindent
+
+" filetype stuff
+filetype on	   " filetype itself
+filetype indent on " indent
+filetype plugin on " plugin
+
+" Automatic installation for vim-plug and the plugins
+"let data_dir = has('vim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob('~/.vim/autoload/plug.vim')) " edited for my liking ;)
+  silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " Snippet support
+call plug#end()
+
+" Snippet configs
+let g:UltiSnipsExpandTrigger="<c-e>" " default is tab
+" list all snippets for current filetype
+let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsEditSplit="vertical" " show snippets vertically
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
