@@ -3,6 +3,9 @@
 " Indentation
 set autoindent
 
+" allow mouse events
+" set mouse=a
+
 " filetype stuff
 filetype on	   " filetype itself
 filetype indent on " indent
